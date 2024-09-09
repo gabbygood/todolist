@@ -3,8 +3,9 @@ import { StyleSheet, Text, TextInput, View } from 'react-native'
 
 const TodoScreen = () => {
   return (
-    <View>
+    <View style={{margin: 16}}>
       <Text>TodoScreen</Text>
+      <TextInput style={{borderWidth: 2, borderColor: "#303236", }}/>
     </View>
   )
 }
