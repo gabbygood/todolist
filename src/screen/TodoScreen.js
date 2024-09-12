@@ -45,11 +45,15 @@ const TodoScreen = () => {
   const [todoList, setTodoList] = useState([])
 
   const handleAddTodo = () => {
+    if (todo === "") {
+      return;
+    }
     setTodoList([...todoList, { id: Date.now().toString(), title: todo }])
+
     setTodo("")
   }
   const handleDeleteTodo = (id) => {
-    const updateTodoList = todoList.filter((todo) => { todoList.id !== id })
+    const updateTodoList = todoList.filter((todo) => todo.id !== id)
 
     setTodoList(updateTodoList)
   }
@@ -103,7 +107,7 @@ const TodoScreen = () => {
         </TouchableOpacity>)
       }
       <FlatList data={todoList} renderItem={renderTodos} />
-      <Text style={{marginLeft: 75}}>Developer: Gab and Emily</Text>
+      <Text style={{ marginLeft: 75 }}>Developer: Gab and Emily</Text>
     </View>
   )
 }
@@ -124,7 +128,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     paddingVertical: 8,
     width: 300,
-    marginTop:10
+    marginTop: 30
   },
   todoApp: {
     fontFamily: "Playwrite-CU",
