@@ -2,6 +2,7 @@ import { FlatList, StyleSheet, Text, TextInput, Touchable, TouchableOpacity, Vie
 import React, { useState } from 'react';
 import { useFonts } from 'expo-font';
 import { IconButton } from 'react-native-paper'
+import { AguafinaScript_400Regular } from '@expo-google-fonts/aguafina-script'
 const tempData = [
   {
     id: "01",
@@ -20,7 +21,9 @@ const TodoScreen = () => {
   const [number, onChangeNumber] = React.useState('');
   const [todo, setTodo] = useState("")
   const [editedTodo, setEditedTodo] = useState(null)
-
+  useFonts({
+    'Playwrite-CU': require('../../assets/fonts/PlaywriteCU-Regular.ttf'),
+  });
   const renderTodos = ({ item, index }) => {
     return (
       <View style={{
@@ -100,6 +103,7 @@ const TodoScreen = () => {
         </TouchableOpacity>)
       }
       <FlatList data={todoList} renderItem={renderTodos} />
+      <Text style={{marginLeft: 75}}>Developer: Gab and Emily</Text>
     </View>
   )
 }
@@ -119,12 +123,13 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 20,
     paddingVertical: 8,
-    width: 345
+    width: 300,
+    marginTop:10
   },
   todoApp: {
     fontFamily: "Playwrite-CU",
-    marginTop: 50,
-    marginLeft: 100,
+    marginTop: 60,
+    marginLeft: 60,
     fontSize: 40
   }
 })
